@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  git:
+    image: k8s.gcr.io/git-sync:v3.1.1
+    environment:
+      - GIT_SYNC_REPO=https://github.com/dekink/flask-restplus.git
+      - GIT_SYNC_DEST=app
+      - GIT_SYNC_BRANCH=master
