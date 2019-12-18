@@ -7,16 +7,16 @@ from airflow.operators.dummy_operator import DummyOperator
 default_args = {
     'owner': 'neos',
     'depends_on_past': False,
-    'start_date': datetime(2018, 11, 1),
+    'start_date': datetime.utcnow(),
     'email': ['kimdaeun@neosapience.com'],
     'email_on_failure': True,
     'email_on_retry': True,
     'retries': 1,
-    'retry_delay': timedelta(minutes=1)
+    'retry_delay': timedelta(minutes=5)
 }
 
 dag = DAG(
-    'kube_sample', default_args=default_args, schedule_interval=timedelta(minutes=3))
+    'kube_sample', default_args=default_args, schedule_interval=timedelta(minutes=10))
 
 
 start = DummyOperator(task_id='t1', dag=dag)
