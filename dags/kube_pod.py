@@ -8,7 +8,6 @@ default_args = {
     'owner': 'neos',
     'depends_on_past': False,
     'start_date': datetime.utcnow(),
-    'email': ['kimdaeun@neosapience.com'],
     'email_on_failure': True,
     'email_on_retry': True,
     'retries': 1,
@@ -16,7 +15,7 @@ default_args = {
 }
 
 dag = DAG(
-    'kube_sample', default_args=default_args, schedule_interval=timedelta(minutes=10))
+    'kube_sample', default_args=default_args, schedule_interval='@once')
 
 
 start = DummyOperator(task_id='t1', dag=dag)
