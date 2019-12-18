@@ -32,6 +32,8 @@ passing = KubernetesPodOperator(namespace='airflow-dev',
                           in_cluster=True,
                           task_id="passing-task",
                           get_logs=True,
+                          volumes=[],
+                          volume_mounts=[],
                           dag=dag
                           )
 
