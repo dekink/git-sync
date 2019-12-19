@@ -7,3 +7,5 @@ services:
       - GIT_SYNC_REPO=https://github.com/dekink/flask-restplus.git
       - GIT_SYNC_DEST=app
       - GIT_SYNC_BRANCH=master
+      # - GIT_SYNC_ROOT=/tmp/git/he
+      - GIT_SYNC_PERMISSIONS=0777

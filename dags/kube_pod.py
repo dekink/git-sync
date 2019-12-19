@@ -7,7 +7,7 @@ from airflow.operators.dummy_operator import DummyOperator
 default_args = {
     'owner': 'neos',
     'depends_on_past': False,
-    'start_date': datetime.utcnow(),
+    'start_date': datetime(1970, 1, 1),
     'email_on_failure': True,
     'email_on_retry': True,
     'retries': 1,
@@ -15,7 +15,7 @@ default_args = {
 }
 
 dag = DAG(
-    'kube_sample', default_args=default_args, schedule_interval='@once')
+    'kube_sample', default_args=default_args, schedule_interval=None)
 
 
 start = DummyOperator(task_id='t1', dag=dag)
