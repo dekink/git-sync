@@ -22,8 +22,8 @@ start = DummyOperator(task_id='t1', dag=dag)
 
 passing = KubernetesPodOperator(namespace='airflow-dev',
                           image="python:3.6-slim",
-                          cmds=["Python","-c"],
-                          arguments=["print('hello world')"],
+                        #   cmds=["Python","-c"],
+                        #   arguments=["print('hello world')"],
                           labels={"app": "airflow"},
                           node_selectors={"role": "data-pipeline"},
                           service_account_name="sa-airflow",
@@ -37,9 +37,9 @@ passing = KubernetesPodOperator(namespace='airflow-dev',
                           )
 
 failing = KubernetesPodOperator(namespace='airflow-dev',
-                          image="ubuntu:1604",
-                          cmds=["Python","-c"],
-                          arguments=["print('hello world')"],
+                          image="ubuntu",
+                        #   cmds=["Python","-c"],
+                        #   arguments=["print('hello world')"],
                           labels={"app": "airflow"},
                           node_selectors={"role": "data-pipeline"},
                           service_account_name="sa-airflow",
