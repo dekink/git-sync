@@ -4,8 +4,12 @@ services:
   git:
     image: k8s.gcr.io/git-sync:v3.1.1
     environment:
-      - GIT_SYNC_REPO=https://github.com/dekink/flask-restplus.git
+      - GIT_SYNC_REPO=git@github.com:neosapience/airflow.git
       - GIT_SYNC_DEST=app
       - GIT_SYNC_BRANCH=master
       # - GIT_SYNC_ROOT=/tmp/git/he
-      - GIT_SYNC_PERMISSIONS=0777
+      # - GIT_SYNC_PERMISSIONS=0777
+      # - GIT_SYNC_ONE_TIME=true
+      - GIT_SYNC_SSH=true
+    volumes:
+      - ./secrets:/etc/git-secret
